@@ -8,7 +8,10 @@ function renderWord(){
 }
 
 function setStyle(name, el){
-  document.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.pill').forEach(function(p){
+    p.classList.remove('active');
+    if(!el && p.textContent.trim() === name) p.classList.add('active');
+  });
   if(el) el.classList.add('active');
   var sel = document.getElementById('styleSelect');
   if(sel) sel.value = name;
@@ -29,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function(){
   var input = document.getElementById('wordInput');
   if(input) input.addEventListener('input', renderWord);
 
+  var styleSelect = document.getElementById('styleSelect');
+  if(styleSelect){
+    styleSelect.addEventListener('change', function(){
+      setStyle(this.value, null);
+    });
+  }
+
   var burger = document.getElementById('burgerBtn');
   var drawer = document.getElementById('mobileDrawer');
   var closeBtn = document.getElementById('drawerClose');
@@ -43,4 +53,19 @@ document.addEventListener('DOMContentLoaded', function(){
       if(e.target === drawer) drawer.classList.remove('open');
     });
   }
+
+  document.querySelectorAll('.has-menu > a').forEach(function(trigger){
+    trigger.addEventListener('click', function(e){
+      e.preventDefault();
+      var parent = trigger.closest('.has-menu');
+      var wasOpen = parent.classList.contains('open');
+      document.querySelectorAll('.has-menu.open').forEach(function(m){ m.classList.remove('open'); });
+      if(!wasOpen) parent.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.has-menu.open').forEach(function(m){
+      if(!m.contains(e.target)) m.classList.remove('open');
+    });
+  });
 });
