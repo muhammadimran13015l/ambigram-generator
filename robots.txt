@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://muhammadimran13015l.github.io/ambigram/sitemap.xml
+Sitemap: https://muhammadimran13015l.github.io/ambigram-generator/sitemap.xml
