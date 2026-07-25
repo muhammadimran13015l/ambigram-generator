@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular Ambigram | Ambigram Generator</title>
+<meta name="description" content="A circular ambigram arranges letters around the circumference of a circle rather than along a straight line, so rotating the whole ring by any amount ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <div class="container nav-row">
+    <a href="index.html" class="brand"><span class="mark">&#8652;</span> Ambigram Generator</a>
+    <nav class="links">
+      <a href="mirror-ambigram-generator.html">Mirror Generator</a>
+      <a href="tattoo-ambigram-generator.html">Tattoo Generator</a>
+      <div class="has-menu">
+        <a href="#">More Generators &#9662;</a>
+        <div class="mega"><div><h5>Orientation</h5><a href="mirror-ambigram-generator.html">Mirror Ambigram Generator</a><a href="rotational-ambigram-generator.html">Rotational Ambigram Generator</a><a href="circular-ambigram.html">Circular Ambigram</a></div><div><h5>Purpose & Occasion</h5><a href="tattoo-ambigram-generator.html">Tattoo Ambigram Generator</a><a href="ai-ambigram-generator.html">AI Ambigram Generator</a><a href="two-name-ambigram.html">Two Name Ambigram</a><a href="logo-ambigram-generator.html">Logo Ambigram Generator</a></div><div><h5>Style & Craft</h5><a href="calligraphy-ambigram.html">Calligraphy Ambigram</a><a href="monogram-generator.html">Monogram Generator</a><a href="ambigram-font-generator.html">Ambigram Font Generator</a></div><div><h5>Plain Text Tools</h5><a href="flip-text-generator.html">Flip Text Generator</a><a href="upside-down-text-generator.html">Upside Down Text Generator</a><a href="mirror-text-generator.html">Mirror Text Generator</a></div></div>
+      </div>
+      <a href="index.html#guide">Guide</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <button class="burger" id="burgerBtn">&#9776;</button>
+    <a href="index.html#demo" class="cta">Generate Ambigram</a>
+  </div>
+</header>
+
+<div class="drawer" id="mobileDrawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose">Close</button>
+    <div style="clear:both;"></div>
+    <h5>Orientation</h5><a href="mirror-ambigram-generator.html">Mirror Ambigram Generator</a><a href="rotational-ambigram-generator.html">Rotational Ambigram Generator</a><a href="circular-ambigram.html">Circular Ambigram</a><h5>Purpose & Occasion</h5><a href="tattoo-ambigram-generator.html">Tattoo Ambigram Generator</a><a href="ai-ambigram-generator.html">AI Ambigram Generator</a><a href="two-name-ambigram.html">Two Name Ambigram</a><a href="logo-ambigram-generator.html">Logo Ambigram Generator</a><h5>Style & Craft</h5><a href="calligraphy-ambigram.html">Calligraphy Ambigram</a><a href="monogram-generator.html">Monogram Generator</a><a href="ambigram-font-generator.html">Ambigram Font Generator</a><h5>Plain Text Tools</h5><a href="flip-text-generator.html">Flip Text Generator</a><a href="upside-down-text-generator.html">Upside Down Text Generator</a><a href="mirror-text-generator.html">Mirror Text Generator</a>
+  </div>
+</div>
+
+<div class="container breadcrumb"><a href="index.html">Home</a> / <a href="index.html#specimen">Orientation</a> / <span>Circular Ambigram</span></div>
+
+<section class="hero" style="padding-top:44px;">
+  <div class="container hero-top">
+    <span class="eyebrow accent">Free &middot; instant &middot; no watermark</span>
+    <h1>Circular <span class="accent-word">Ambigram</span></h1>
+    <p>Letters wrapped around a ring, readable from any point.</p>
+  </div>
+
+  <div class="container demo" id="demo">
+    <div class="demo-controls">
+      <input id="wordInput" type="text" value="CIRCLE" maxlength="18">
+      <select id="styleSelect">
+        <option selected>Modern</option>
+        <option >Gothic</option>
+        <option >Tattoo Ink</option>
+        <option >Elegant</option>
+        <option >Minimal</option>
+      </select>
+      <button onclick="renderWord()">Generate</button>
+    </div>
+    <div class="mirror-stage">
+      <div class="word-top" id="wordTop" style="font-family:'Outfit', sans-serif;">CIRCLE</div>
+      <div class="axis"><span>AXIS OF SYMMETRY</span></div>
+      <div class="word-bottom" id="wordBottom" style="font-family:'Outfit', sans-serif;">CIRCLE</div>
+    </div>
+  </div>
+  <div class="container quickstyles">
+    <div class="quickstyles-row">
+      <div class="pill active" onclick="setStyle('Modern', this)">Modern</div>
+      <div class="pill " onclick="setStyle('Gothic', this)">Gothic</div>
+      <div class="pill " onclick="setStyle('Tattoo Ink', this)">Tattoo Ink</div>
+      <div class="pill " onclick="setStyle('Elegant', this)">Elegant</div>
+      <div class="pill " onclick="setStyle('Minimal', this)">Minimal</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="rule"></div>
+      <h2>What makes a circular ambigram</h2>
+      <p>A circular ambigram arranges letters around the circumference of a circle rather than along a straight line, so rotating the whole ring by any amount keeps the word legible — a favorite for coins, seals, and circular logo badges.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h4>Enter your text</h4><p>Type the word, name, or pair you want to transform.</p></div>
+      <div class="step"><div class="num">02</div><h4>Set the symmetry</h4><p>Mirror, rotate, or wrap it in a circle &mdash; your call.</p></div>
+      <div class="step"><div class="num">03</div><h4>Pick a style</h4><p>Modern is the default here, but you can switch anytime.</p></div>
+      <div class="step"><div class="num">04</div><h4>Download</h4><p>Free, high-resolution PNG, no watermark, no sign-up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="rule"></div>
+      <h2>Related generators</h2>
+      <p>Same engine, different lens &mdash; these pair naturally with circular ambigram.</p>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="rotational-ambigram-generator.html" style="display:block;">
+          <h4>Rotational Ambigram Generator</h4>
+          <p>Turn the page 180° and the word holds its shape.</p>
+        </a><a class="related-card" href="monogram-generator.html" style="display:block;">
+          <h4>Monogram Generator</h4>
+          <p>Initials, interlocked into a single balanced mark.</p>
+        </a><a class="related-card" href="logo-ambigram-generator.html" style="display:block;">
+          <h4>Logo Ambigram Generator</h4>
+          <p>A mark that stays right-side up no matter how it's placed.</p>
+        </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:12px;">Ambigram Generator</div>
+        <p>A symmetry studio for tattoos, logos, and names &mdash; thirteen tools, one engine.</p>
+      </div>
+      <div class="footer-links"><h5>Orientation</h5><a href="mirror-ambigram-generator.html">Mirror Ambigram Generator</a><a href="rotational-ambigram-generator.html">Rotational Ambigram Generator</a><a href="circular-ambigram.html">Circular Ambigram</a></div><div class="footer-links"><h5>Purpose & Occasion</h5><a href="tattoo-ambigram-generator.html">Tattoo Ambigram Generator</a><a href="ai-ambigram-generator.html">AI Ambigram Generator</a><a href="two-name-ambigram.html">Two Name Ambigram</a><a href="logo-ambigram-generator.html">Logo Ambigram Generator</a></div><div class="footer-links"><h5>Style & Craft</h5><a href="calligraphy-ambigram.html">Calligraphy Ambigram</a><a href="monogram-generator.html">Monogram Generator</a><a href="ambigram-font-generator.html">Ambigram Font Generator</a></div><div class="footer-links"><h5>Plain Text Tools</h5><a href="flip-text-generator.html">Flip Text Generator</a><a href="upside-down-text-generator.html">Upside Down Text Generator</a><a href="mirror-text-generator.html">Mirror Text Generator</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ambigram Generator</span>
+      <span>Symmetry, made legible.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ambigram Generator — Symmetry Studio</title>
+<meta name="description" content="Generate mirror, rotational, tattoo, and logo ambigrams free. Thirteen tools, one symmetry engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav-row">
+    <a href="index.html" class="brand"><span class="mark">&#8652;</span> Ambigram Generator</a>
+    <nav class="links">
+      <a href="mirror-ambigram-generator.html">Mirror Generator</a>
+      <a href="tattoo-ambigram-generator.html">Tattoo Generator</a>
+      <div class="has-menu">
+        <a href="#">More Generators &#9662;</a>
+        <div class="mega">
+          <div><h5>Orientation</h5>
+            <a href="mirror-ambigram-generator.html">Mirror Ambigram Generator</a>
+            <a href="rotational-ambigram-generator.html">Rotational Ambigram Generator</a>
+            <a href="circular-ambigram.html">Circular Ambigram</a>
+          </div>
+          <div><h5>Purpose &amp; Occasion</h5>
+            <a href="tattoo-ambigram-generator.html">Tattoo Ambigram Generator</a>
+            <a href="ai-ambigram-generator.html">AI Ambigram Generator</a>
+            <a href="two-name-ambigram.html">Two Name Ambigram</a>
+            <a href="logo-ambigram-generator.html">Logo Ambigram Generator</a>
+          </div>
+          <div><h5>Style &amp; Craft</h5>
+            <a href="calligraphy-ambigram.html">Calligraphy Ambigram</a>
+            <a href="monogram-generator.html">Monogram Generator</a>
+            <a href="ambigram-font-generator.html">Ambigram Font Generator</a>
+          </div>
+          <div><h5>Plain Text Tools</h5>
+            <a href="flip-text-generator.html">Flip Text Generator</a>
+            <a href="upside-down-text-generator.html">Upside Down Text Generator</a>
+            <a href="mirror-text-generator.html">Mirror Text Generator</a>
+          </div>
+        </div>
+      </div>
+      <a href="#guide">Guide</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="burger" id="burgerBtn">&#9776;</button>
+    <a href="#demo" class="cta">Generate Ambigram</a>
+  </div>
+</header>
+
+<div class="drawer" id="mobileDrawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose">Close</button>
+    <div style="clear:both;"></div>
+    <h5>Orientation</h5>
+    <a href="mirror-ambigram-generator.html">Mirror Ambigram Generator</a>
+    <a href="rotational-ambigram-generator.html">Rotational Ambigram Generator</a>
+    <a href="circular-ambigram.html">Circular Ambigram</a>
+    <h5>Purpose &amp; Occasion</h5>
+    <a href="tattoo-ambigram-generator.html">Tattoo Ambigram Generator</a>
+    <a href="ai-ambigram-generator.html">AI Ambigram Generator</a>
+    <a href="two-name-ambigram.html">Two Name Ambigram</a>
+    <a href="logo-ambigram-generator.html">Logo Ambigram Generator</a>
+    <h5>Style &amp; Craft</h5>
+    <a href="calligraphy-ambigram.html">Calligraphy Ambigram</a>
+    <a href="monogram-generator.html">Monogram Generator</a>
+    <a href="ambigram-font-generator.html">Ambigram Font Generator</a>
+    <h5>Plain Text Tools</h5>
+    <a href="flip-text-generator.html">Flip Text Generator</a>
+    <a href="upside-down-text-generator.html">Upside Down Text Generator</a>
+    <a href="mirror-text-generator.html">Mirror Text Generator</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container hero-top">
+    <span class="eyebrow accent">180&deg; &middot; symmetrical typography</span>
+    <h1>One word.<br>Two <span class="accent-word">readings</span>.</h1>
+    <p>Type anything below and watch it fold into its own reflection — the same engine behind every generator on this site, tuned for tattoos, logos, and names.</p>
+  </div>
+
+  <div class="container demo" id="demo">
+    <div class="demo-controls">
+      <input id="wordInput" type="text" value="AMBIGRAM" maxlength="16">
+      <select id="styleSelect">
+        <option>Modern</option>
+        <option>Gothic</option>
+        <option>Tattoo Ink</option>
+        <option>Elegant</option>
+        <option>Minimal</option>
+      </select>
+      <button onclick="renderWord()">Generate</button>
+    </div>
+
+    <div class="mirror-stage">
+      <div class="word-top" id="wordTop">AMBIGRAM</div>
+      <div class="axis"><span>AXIS OF SYMMETRY</span></div>
+      <div class="word-bottom" id="wordBottom">AMBIGRAM</div>
+    </div>
+  </div>
+
+  <div class="container quickstyles">
+    <div class="quickstyles-row">
+      <div class="pill active" onclick="setStyle('Modern', this)">Modern</div>
+      <div class="pill" onclick="setStyle('Gothic', this)">Gothic</div>
+      <div class="pill" onclick="setStyle('Tattoo Ink', this)">Tattoo Ink</div>
+      <div class="pill" onclick="setStyle('Elegant', this)">Elegant</div>
+      <div class="pill" onclick="setStyle('Minimal', this)">Minimal</div>
+    </div>
+  </div>
+</section>
+
+<section id="specimen">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule"></div>
+      <h2>Thirteen ways to flip a word</h2>
+      <p>Every generator shares the same symmetry engine. Pick the one built for what you're actually making — a tattoo reference, a two-name gift, a brand mark, or just flipped text for a caption.</p>
+    </div>
+
+    <div class="specimen-group">
+      <span class="specimen-group-label">Orientation</span>
+      <a class="specimen-row" href="mirror-ambigram-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Mirror Ambigram Generator</div><div class="specimen-desc">reflects across a vertical axis</div></div>
+        <div class="specimen-sample">MIRROR</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="rotational-ambigram-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Rotational Ambigram Generator</div><div class="specimen-desc">reads the same at 180&deg;</div></div>
+        <div class="specimen-sample">ROTATE</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="circular-ambigram.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Circular Ambigram</div><div class="specimen-desc">wraps letters around a ring</div></div>
+        <div class="specimen-sample">CIRCLE</div><div class="specimen-go">&rarr;</div>
+      </a>
+    </div>
+
+    <div class="specimen-group">
+      <span class="specimen-group-label">Purpose &amp; Occasion</span>
+      <a class="specimen-row" href="tattoo-ambigram-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Tattoo Ambigram Generator</div><div class="specimen-desc">bold strokes built for skin</div></div>
+        <div class="specimen-sample">INKED</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="ai-ambigram-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">AI Ambigram Generator</div><div class="specimen-desc">experimental letter-pair engine</div></div>
+        <div class="specimen-sample">FUTURE</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="two-name-ambigram.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Two Name Ambigram</div><div class="specimen-desc">one name flips into another</div></div>
+        <div class="specimen-sample">SARAH</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="logo-ambigram-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Logo Ambigram Generator</div><div class="specimen-desc">works right-side up in every orientation</div></div>
+        <div class="specimen-sample">BRAND</div><div class="specimen-go">&rarr;</div>
+      </a>
+    </div>
+
+    <div class="specimen-group">
+      <span class="specimen-group-label">Style &amp; Craft</span>
+      <a class="specimen-row" href="calligraphy-ambigram.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Calligraphy Ambigram</div><div class="specimen-desc">flowing script symmetry</div></div>
+        <div class="specimen-sample" style="font-family:'Great Vibes',cursive;font-size:30px;">Grace</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="monogram-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Monogram Generator</div><div class="specimen-desc">initials, interlocked</div></div>
+        <div class="specimen-sample">MG</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="ambigram-font-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Ambigram Font Generator</div><div class="specimen-desc">download a reusable letterform set</div></div>
+        <div class="specimen-sample">TYPE</div><div class="specimen-go">&rarr;</div>
+      </a>
+    </div>
+
+    <div class="specimen-group">
+      <span class="specimen-group-label">Plain Text Tools</span>
+      <a class="specimen-row" href="flip-text-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Flip Text Generator</div><div class="specimen-desc">quick flipped-character text</div></div>
+        <div class="specimen-sample">Fl?p ?ext</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="upside-down-text-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Upside Down Text Generator</div><div class="specimen-desc">inverts glyph-by-glyph</div></div>
+        <div class="specimen-sample">olleH</div><div class="specimen-go">&rarr;</div>
+      </a>
+      <a class="specimen-row" href="mirror-text-generator.html" style="display:grid;text-decoration:none;">
+        <div><div class="specimen-name">Mirror Text Generator</div><div class="specimen-desc">plain left-right reversal</div></div>
+        <div class="specimen-sample">rorriM</div><div class="specimen-go">&rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule"></div>
+      <h2>How it works</h2>
+      <p>Four steps, same across every generator on this site.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h4>Enter text</h4><p>A name, word, or two names to merge.</p></div>
+      <div class="step"><div class="num">02</div><h4>Pick orientation</h4><p>Mirror, rotational, or circular symmetry.</p></div>
+      <div class="step"><div class="num">03</div><h4>Choose a style</h4><p>Gothic for ink, modern for logos, script for names.</p></div>
+      <div class="step"><div class="num">04</div><h4>Download</h4><p>High-resolution PNG, free, no watermark.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule"></div>
+      <h2>Built on one engine, not thirteen gimmicks</h2>
+      <p>Every page above is a different lens on the same letter-symmetry logic — so a design you like in one generator carries over to the rest.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-cell"><h4>Letter compatibility</h4><p>We map which letters rotate or mirror into others before we touch a font.</p></div>
+      <div class="why-cell"><h4>Stroke balance</h4><p>Consistent weight keeps both readings legible, not just one.</p></div>
+      <div class="why-cell"><h4>Free, always</h4><p>Unlimited generations and full-resolution downloads, no paywall.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:12px;">Ambigram Generator</div>
+        <p>A symmetry studio for tattoos, logos, and names — thirteen tools, one engine.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Orientation</h5>
+        <a href="mirror-ambigram-generator.html">Mirror Ambigram</a>
+        <a href="rotational-ambigram-generator.html">Rotational Ambigram</a>
+        <a href="circular-ambigram.html">Circular Ambigram</a>
+        <a href="flip-text-generator.html">Flip Text</a>
+        <a href="upside-down-text-generator.html">Upside Down Text</a>
+        <a href="mirror-text-generator.html">Mirror Text</a>
+      </div>
+      <div class="footer-links">
+        <h5>Purpose</h5>
+        <a href="tattoo-ambigram-generator.html">Tattoo Ambigram</a>
+        <a href="two-name-ambigram.html">Two Name Ambigram</a>
+        <a href="logo-ambigram-generator.html">Logo Ambigram</a>
+        <a href="ai-ambigram-generator.html">AI Ambigram</a>
+      </div>
+      <div class="footer-links">
+        <h5>Style</h5>
+        <a href="calligraphy-ambigram.html">Calligraphy Ambigram</a>
+        <a href="monogram-generator.html">Monogram Generator</a>
+        <a href="ambigram-font-generator.html">Ambigram Font Generator</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ambigram Generator</span>
+      <span>Symmetry, made legible.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
