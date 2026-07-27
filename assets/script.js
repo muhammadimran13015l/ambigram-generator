@@ -1,3 +1,63 @@
+function showToast(msg){
+  var toast = document.getElementById('toast');
+  if(!toast){
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+}
+
+function currentWordSlug(){
+  var input = document.getElementById('wordInput');
+  var val = (input ? input.value.trim() : '') || 'ambigram';
+  return val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'ambigram';
+}
+
+function downloadPNG(){
+  var stage = document.querySelector('.mirror-stage');
+  if(!stage){ return; }
+  if(!window.html2canvas){
+    showToast('Still loading — try again in a second.');
+    return;
+  }
+  html2canvas(stage, { backgroundColor: null, scale: 2 }).then(function(canvas){
+    var link = document.createElement('a');
+    link.download = 'ambigram-' + currentWordSlug() + '.png';
+    link.href = canvas.toDataURL('image/png');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('PNG downloaded.');
+  }).catch(function(){
+    showToast('Could not generate the image. Please try again.');
+  });
+}
+
+function shareAmbigram(){
+  var word = (document.getElementById('wordInput') ? document.getElementById('wordInput').value.trim() : '') || 'ambigram';
+  var shareData = {
+    title: 'Ambigram Generator',
+    text: 'Check out this "' + word + '" ambigram I made!',
+    url: window.location.href.split('#')[0]
+  };
+  if(navigator.share){
+    navigator.share(shareData).catch(function(){});
+  } else if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(shareData.url).then(function(){
+      showToast('Link copied to clipboard!');
+    }).catch(function(){
+      showToast(shareData.url);
+    });
+  } else {
+    window.prompt('Copy this link to share:', shareData.url);
+  }
+}
+
 function renderWord(){
   var input = document.getElementById('wordInput');
   var val = (input ? input.value.trim() : '') || 'AMBIGRAM';
