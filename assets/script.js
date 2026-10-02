@@ -18,13 +18,20 @@ function currentWordSlug(){
   return val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'ambigram';
 }
 
+function loadHtml2Canvas(cb){
+  if(window.html2canvas){ cb(); return; }
+  showToast('Preparing download…');
+  var s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+  s.onload = cb;
+  s.onerror = function(){ showToast('Could not load the download tool. Please try again.'); };
+  document.head.appendChild(s);
+}
+
 function downloadPNG(){
   var stage = document.querySelector('.mirror-stage');
   if(!stage){ return; }
-  if(!window.html2canvas){
-    showToast('Still loading — try again in a second.');
-    return;
-  }
+  loadHtml2Canvas(function(){
   html2canvas(stage, { backgroundColor: null, scale: 2 }).then(function(canvas){
     var link = document.createElement('a');
     link.download = 'ambigram-' + currentWordSlug() + '.png';
@@ -35,6 +42,7 @@ function downloadPNG(){
     showToast('PNG downloaded.');
   }).catch(function(){
     showToast('Could not generate the image. Please try again.');
+  });
   });
 }
 
