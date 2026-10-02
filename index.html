@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ambigram Generator Online | Free AI Tattoo & Logo Creator</title>
-<meta name="description" content="Use our Ambigram Generator to design stunning name, tattoo, logo, and text ambigrams online. Free AI tool with instant, professional results.">
+<meta name="description" content="Use our free Ambigram Generator to design name, tattoo, logo, and text ambigrams online. Download high-res PNG & SVG vector files instantly.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,9 +26,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Ambigram Generator — Symmetry Studio","url":"https://aiambigramgenerator.com/","applicationCategory":"DesignApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this ambigram generator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 every tool on this site generates unlimited designs and full-resolution downloads with no paywall."}}, {"@type": "Question", "name": "What's the best word length for an ambigram?", "acceptedAnswer": {"@type": "Answer", "text": "Short words of 4\u20138 letters generally produce the cleanest, most balanced results. Longer phrases can still work, but usually need more artistic compromise."}}, {"@type": "Question", "name": "Can an ambigram show two different words?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 these are sometimes called dual-word ambigrams. The Two Name Ambigram and AI Ambigram Generator tools are both built for exactly this."}}, {"@type": "Question", "name": "Which file format should I download?", "acceptedAnswer": {"@type": "Answer", "text": "PNG works well for social media and web use. If you plan to resize the design for printing or engraving, look for a tool that also offers a vector format like SVG."}}, {"@type": "Question", "name": "Do I need design experience to use this?", "acceptedAnswer": {"@type": "Answer", "text": "No. Type your text, pick a style, and generate \u2014 no typography background required."}}, {"@type": "Question", "name": "Can ambigrams be made in languages other than English?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, though English is the most common starting point. Feasibility depends on the letterforms and structure of the target script."}}]}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this ambigram generator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — every tool on this site generates unlimited designs and full-resolution downloads with no paywall."}}, {"@type": "Question", "name": "What's the best word length for an ambigram?", "acceptedAnswer": {"@type": "Answer", "text": "Short words of 4–8 letters generally produce the cleanest, most balanced results. Longer phrases can still work, but usually need more artistic compromise."}}, {"@type": "Question", "name": "Can an ambigram show two different words?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — these are sometimes called dual-word ambigrams. The Two Name Ambigram and AI Ambigram Generator tools are both built for exactly this."}}, {"@type": "Question", "name": "Which file format should I download?", "acceptedAnswer": {"@type": "Answer", "text": "PNG works well for social media and web use. If you plan to resize the design for printing or engraving, look for a tool that also offers a vector format like SVG."}}, {"@type": "Question", "name": "Do I need design experience to use this?", "acceptedAnswer": {"@type": "Answer", "text": "No. Type your text, pick a style, and generate — no typography background required."}}, {"@type": "Question", "name": "Can ambigrams be made in languages other than English?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, though English is the most common starting point. Feasibility depends on the letterforms and structure of the target script."}}, {"@type": "Question", "name": "Can I download my ambigram as an SVG vector file?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every design can be exported as a scalable SVG vector in addition to high-resolution PNG. SVG ambigrams stay razor-sharp at any size, making them ideal for vinyl cutting, laser engraving, print-on-demand products, and tattoo stencils that need clean, resolution-independent lines."}}, {"@type": "Question", "name": "Can I customize the text color and size?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use the color picker to match your brand, tattoo ink, or wedding palette, and the size slider to scale the lettering from subtle monograms to bold statement pieces. Your custom ambigram updates live in the preview before you download."}}, {"@type": "Question", "name": "How many characters can my ambigram have?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 20 characters. Shorter words (4–10 letters) usually produce the cleanest, most readable ambigrams, but the generator handles full names and short phrases too — try different styles if a long word looks crowded."}}]}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -138,7 +136,7 @@
 
   <div class="container demo" id="demo">
     <div class="demo-controls">
-      <input id="wordInput" type="text" value="AMBIGRAM" maxlength="16">
+      <input id="wordInput" type="text" value="AMBIGRAM" maxlength="20">
       <select id="styleSelect">
         <option>Modern</option>
         <option>Gothic</option>
@@ -146,6 +144,8 @@
         <option>Elegant</option>
         <option>Minimal</option>
       </select>
+            <input type="color" id="colorInput" value="#ffffff" title="Text color" aria-label="Text color">
+      <input type="range" id="sizeInput" min="24" max="96" value="50" title="Text size" aria-label="Text size">
       <button onclick="renderWord()">Generate</button>
     </div>
 
@@ -161,6 +161,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download PNG
       </button>
+      <button class="btn-download" onclick="downloadSVG()" aria-label="Download this ambigram as an SVG vector file">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download SVG
+      </button>
+
       <button class="btn-share" onclick="shareAmbigram()" aria-label="Share this ambigram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         Share
@@ -281,7 +286,7 @@
       <div class="step"><div class="num">01</div><h3>Enter text</h3><p>A name, word, or two names to merge.</p></div>
       <div class="step"><div class="num">02</div><h3>Pick orientation</h3><p>Mirror, rotational, or circular symmetry.</p></div>
       <div class="step"><div class="num">03</div><h3>Choose a style</h3><p>Gothic for ink, modern for logos, script for names.</p></div>
-      <div class="step"><div class="num">04</div><h3>Download</h3><p>High-resolution PNG, free, no watermark.</p></div>
+      <div class="step"><div class="num">04</div><h3>Download</h3><p>High-resolution PNG &amp; vector SVG, free, no watermark.</p></div>
     </div>
   </div>
 </section>
@@ -409,6 +414,18 @@
       <div style="padding:24px 0;">
         <h3 style="margin:0 0 8px;font-size:16px;">Can ambigrams be made in languages other than English?</h3>
         <p style="margin:0;color:var(--text-dim);font-size:14.5px;line-height:1.6;">Yes, though English is the most common starting point. Feasibility depends on the letterforms and structure of the target script.</p>
+      </div>
+      <div style="padding:24px 0;border-bottom:1px solid var(--border);">
+        <h3 style="margin:0 0 8px;font-size:16px;">Can I download my ambigram as an SVG vector file?</h3>
+        <p style="margin:0;color:var(--text-dim);font-size:14.5px;line-height:1.6;">Yes. Every design can be exported as a scalable SVG vector in addition to high-resolution PNG. SVG ambigrams stay razor-sharp at any size, making them ideal for vinyl cutting, laser engraving, print-on-demand products, and tattoo stencils that need clean, resolution-independent lines.</p>
+      </div>
+      <div style="padding:24px 0;border-bottom:1px solid var(--border);">
+        <h3 style="margin:0 0 8px;font-size:16px;">Can I customize the text color and size?</h3>
+        <p style="margin:0;color:var(--text-dim);font-size:14.5px;line-height:1.6;">Yes. Use the color picker to match your brand, tattoo ink, or wedding palette, and the size slider to scale the lettering from subtle monograms to bold statement pieces. Your custom ambigram updates live in the preview before you download.</p>
+      </div>
+      <div style="padding:24px 0;border-bottom:1px solid var(--border);">
+        <h3 style="margin:0 0 8px;font-size:16px;">How many characters can my ambigram have?</h3>
+        <p style="margin:0;color:var(--text-dim);font-size:14.5px;line-height:1.6;">Up to 20 characters. Shorter words (4–10 letters) usually produce the cleanest, most readable ambigrams, but the generator handles full names and short phrases too — try different styles if a long word looks crowded.</p>
       </div>
     </div>
   </div>
